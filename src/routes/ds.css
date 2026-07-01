@@ -836,6 +836,12 @@ button:active:not(:hover),
 	image-rendering: pixelated;
 }
 
+/* shrink nested pictochat messages */
+.pictochat-message > .pictochat-message,
+.pictochat-message > .pictochat-status {
+	width: 100%;
+}
+
 .pictochat-status {
 	border-style: solid;
 	border-width: 8px;

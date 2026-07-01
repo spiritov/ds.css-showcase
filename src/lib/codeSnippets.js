@@ -84,26 +84,21 @@ const info = `<div class="info">
 
 const pictochat = `<div class="ds-grid-lg">
 	<div class="pictochat-window">
-		<div class="pictochat-message pictochat-enter-highlight">A message..</div>
+		<div class="pictochat-message pictochat-enter-highlight">Now joining..</div>
+    <div class="pictochat-message">
+							<header class="ds-blue-50">satellites</header>
+							<span
+								>cause the feelings come and go like flashing lights, but you never leave my
+								satellite</span
+							>
+						</div>
 		<div class="pictochat-status pictochat-exit-highlight">Now leaving..</div>
 	</div>
 </div>`;
 
-const colors = `bg-ds-theme-slate
-bg-ds-theme-maroon
-bg-ds-theme-red
-bg-ds-theme-pink
-bg-ds-theme-orange
-bg-ds-theme-yellow
-bg-ds-theme-neonyellow
-bg-ds-theme-lime
-bg-ds-theme-green
-bg-ds-theme-teal
-bg-ds-theme-turquoise
-bg-ds-theme-blue
-bg-ds-theme-navy
-bg-ds-theme-darkpurple
-bg-ds-theme-magenta
-bg-ds-theme-fuschia`;
+const colors = `ds-slate   ds-maroon      ds-red         ds-pink
+ds-orange  ds-yellow      ds-neonyellow  ds-lime
+ds-green   ds-teal        ds-turquoise   ds-blue
+ds-navy    ds-darkpurple  ds-magenta     ds-fuschia`;
 
 export { accordion, button, input, radioButtons, grids, bars, alert, info, pictochat, colors };

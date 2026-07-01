@@ -316,7 +316,14 @@
 				</Textbox>
 				<DSComponent>
 					<div class="pictochat-window w-121 h-48">
-						<div class="pictochat-message pictochat-enter-highlight">A message..</div>
+						<div class="pictochat-message pictochat-enter-highlight">Now joining..</div>
+						<div class="pictochat-message">
+							<header class="ds-blue-50">satellites</header>
+							<span
+								>cause the feelings come and go like flashing lights, but you never leave my
+								satellite</span
+							>
+						</div>
 						<div class="pictochat-status pictochat-exit-highlight">Now leaving..</div>
 					</div>
 				</DSComponent>
