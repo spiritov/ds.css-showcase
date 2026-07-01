@@ -58,7 +58,7 @@
 					<header class="bg-ds-theme-fuschia/50">mkgzr</header>
 				</Textbox>
 				<div class="pictochat-status pictochat-exit-highlight">
-					ds.css is pure css framework and love letter to the DS / DS Lite's firmware.
+					ds.css is a pure css framework and love letter to the DS / DS Lite's firmware.
 				</div>
 
 				<Textbox>
