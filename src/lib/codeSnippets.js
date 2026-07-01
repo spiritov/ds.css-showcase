@@ -22,19 +22,19 @@ const input = `<label>
 const radioButtons = `<fieldset>
 	<legend>Select an option</legend>
 	<div class="radio-button">
-		<input id="radio1" type="radio" name="option" class="bg-ds-theme-fuschia" />
+		<input id="radio1" type="radio" name="option" class="ds-fuschia" />
 		<label for="radio1">Piece of Cipher</label>
 	</div>
 	<div class="radio-button">
-		<input id="radio2" type="radio" name="option" class="bg-ds-theme-fuschia" />
+		<input id="radio2" type="radio" name="option" class="ds-fuschia" />
 		<label for="radio2">Chaining Intention</label>
 	</div>
 	<div class="radio-button">
-		<input id="radio3" type="radio" name="option" class="bg-ds-theme-fuschia" />
+		<input id="radio3" type="radio" name="option" class="ds-fuschia" />
 		<label for="radio3">0259 in my room</label>
 	</div>
 	<div class="radio-button">
-		<input id="radio4" type="radio" name="option" class="bg-ds-theme-fuschia" />
+		<input id="radio4" type="radio" name="option" class="ds-fuschia" />
 		<label for="radio4">Fantasia Nr.2</label>
 	</div>
 </fieldset>`;
@@ -42,9 +42,9 @@ const radioButtons = `<fieldset>
 const grids = `<div class="ds-grid"></div>
 <div class="ds-grid-lg"></div>`;
 
-const bars = `<div class="bar bg-ds-theme-slate"></div>
-<div class="bar-lg bg-ds-theme-green"></div>
-<div class="bar-lg-reverse bg-ds-theme-darkpurple"></div>`;
+const bars = `<div class="bar ds-slate"></div>
+<div class="bar-lg ds-green"></div>
+<div class="bar-lg-reverse ds-darkpurple"></div>`;
 
 const alert = `<div class="alert">
 	<div class="loading-container">

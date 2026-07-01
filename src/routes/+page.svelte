@@ -21,48 +21,48 @@
 	<!-- side -->
 	<div class="flex flex-col pl-3 md:pl-7.5 pt-7.5 gap-3 h-full">
 		<a href="#colors" draggable="false">
-			<button class="bg-ds-theme-pink">Colors</button>
+			<button class="ds-pink">Colors</button>
 		</a>
 		<a href="#accordion" draggable="false">
-			<button class="bg-ds-theme-red">Accordion</button>
+			<button class="ds-red">Accordion</button>
 		</a>
 		<a href="#buttons" draggable="false">
-			<button class="bg-ds-theme-blue">Buttons</button>
+			<button class="ds-blue">Buttons</button>
 		</a>
 		<a href="#input" draggable="false">
-			<button class="bg-ds-theme-green">Input</button>
+			<button class="ds-green">Input</button>
 		</a>
 		<a href="#radio" draggable="false">
-			<button class="bg-ds-theme-green">Radio Buttons</button>
+			<button class="ds-green">Radio Buttons</button>
 		</a>
 		<a href="#grids" draggable="false">
-			<button class="bg-ds-theme-slate">Grids</button>
+			<button class="ds-slate">Grids</button>
 		</a>
 		<a href="#bars" draggable="false">
-			<button class="bg-ds-theme-slate">Bars</button>
+			<button class="ds-slate">Bars</button>
 		</a>
 		<a href="#alertpopup" draggable="false">
-			<button class="bg-ds-theme-orange">Alert / Popup</button>
+			<button class="ds-orange">Alert / Popup</button>
 		</a>
 		<a href="#infoheader" draggable="false">
-			<button class="bg-ds-theme-red">Info Header Box</button>
+			<button class="ds-red">Info Header Box</button>
 		</a>
 		<a href="#pictochat" draggable="false">
-			<button class="bg-ds-theme-turquoise">Pictochat</button>
+			<button class="ds-turquoise">Pictochat</button>
 		</a>
 	</div>
 	<!-- main -->
 	<div class="h-dvh w-full m-4">
 		<main class="flex flex-col pictochat-window pb-192 w-full">
 			<Textbox bgimage={dscsspictochat}>
-				<header class="bg-ds-theme-fuschia/50">mkgzr</header>
+				<header class="ds-fuschia-50">mkgzr</header>
 			</Textbox>
 			<div class="pictochat-status pictochat-exit-highlight">
 				ds.css is a pure css framework and love letter to the DS / DS Lite's firmware.
 			</div>
 
 			<Textbox>
-				<header class="bg-ds-theme-blue/50">Note (06/30/26)</header>
+				<header class="ds-blue-50">Note (06/30/26)</header>
 				<span
 					>Things are still a work-in-progress and not always thoroughly tested! Suggestions are
 					welcome on the GitHub's <a
@@ -94,27 +94,35 @@
 			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
 				<Textbox>
 					<span
-						>16 themed colors are available. They work well with some component backgrounds!</span
+						>16 themed colors are available to set background colors. They work well with some
+						component backgrounds!</span
 					>
+					<Textbox>
+						<header class="ds-blue-50">Note</header>
+						<span>For other uses, they're also css variables (ex. --color-ds-theme-blue).</span>
+					</Textbox>
+					<Textbox>
+						<span>Add "-50" (ex. ds-blue-50) to use a lighter version of any color.</span>
+					</Textbox>
 				</Textbox>
 				<DSComponent>
 					<div class="grid grid-cols-4 w-fit gap-3.5">
-						<button class="button-square bg-ds-theme-slate"></button>
-						<button class="button-square bg-ds-theme-maroon"></button>
-						<button class="button-square bg-ds-theme-red"></button>
-						<button class="button-square bg-ds-theme-pink"></button>
-						<button class="button-square bg-ds-theme-orange"></button>
-						<button class="button-square bg-ds-theme-yellow"></button>
-						<button class="button-square bg-ds-theme-neonyellow"></button>
-						<button class="button-square bg-ds-theme-lime"></button>
-						<button class="button-square bg-ds-theme-green"></button>
-						<button class="button-square bg-ds-theme-teal"></button>
-						<button class="button-square bg-ds-theme-turquoise"></button>
-						<button class="button-square bg-ds-theme-blue"></button>
-						<button class="button-square bg-ds-theme-navy"></button>
-						<button class="button-square bg-ds-theme-darkpurple"></button>
-						<button class="button-square bg-ds-theme-magenta"></button>
-						<button class="button-square bg-ds-theme-fuschia"></button>
+						<button class="button-square ds-slate"></button>
+						<button class="button-square ds-maroon"></button>
+						<button class="button-square ds-red"></button>
+						<button class="button-square ds-pink"></button>
+						<button class="button-square ds-orange"></button>
+						<button class="button-square ds-yellow"></button>
+						<button class="button-square ds-neonyellow"></button>
+						<button class="button-square ds-lime"></button>
+						<button class="button-square ds-green"></button>
+						<button class="button-square ds-teal"></button>
+						<button class="button-square ds-turquoise"></button>
+						<button class="button-square ds-blue"></button>
+						<button class="button-square ds-navy"></button>
+						<button class="button-square ds-darkpurple"></button>
+						<button class="button-square ds-magenta"></button>
+						<button class="button-square ds-fuschia"></button>
 					</div>
 				</DSComponent>
 				<CodeSnippet code={snippets.colors} />
@@ -179,31 +187,31 @@
 						>Radio buttons need a color to appear selected.This example uses a css grid for its
 						layout.</span
 					>
-				</Textbox>
-				<Textbox>
-					<header class="bg-ds-theme-blue/50">Note</header>
-					<span
-						>Bring your own container for the &#x3C;fieldset&#x3E;! This example uses a grid for its
-						layout.</span
-					>
+					<Textbox>
+						<header class="ds-darkpurple-50">Important</header>
+						<span
+							>Bring your own container for the &#x3C;fieldset&#x3E;! This example uses a grid for
+							its layout.</span
+						>
+					</Textbox>
 				</Textbox>
 				<DSComponent>
 					<fieldset class="grid grid-cols-2 gap-4">
 						<legend>Select an option</legend>
 						<div class="radio-button">
-							<input id="radio1" type="radio" name="option" class="bg-ds-theme-fuschia" />
+							<input id="radio1" type="radio" name="option" class="ds-fuschia" />
 							<label for="radio1">Piece of Cipher</label>
 						</div>
 						<div class="radio-button">
-							<input id="radio2" type="radio" name="option" class="bg-ds-theme-fuschia" />
+							<input id="radio2" type="radio" name="option" class="ds-fuschia" />
 							<label for="radio2">Chaining Intention</label>
 						</div>
 						<div class="radio-button">
-							<input id="radio3" type="radio" name="option" class="bg-ds-theme-fuschia" />
+							<input id="radio3" type="radio" name="option" class="ds-fuschia" />
 							<label for="radio3">0259 in my room</label>
 						</div>
 						<div class="radio-button">
-							<input id="radio4" type="radio" name="option" class="bg-ds-theme-fuschia" />
+							<input id="radio4" type="radio" name="option" class="ds-fuschia" />
 							<label for="radio4">Fantasia Nr.2</label>
 						</div>
 					</fieldset>
@@ -234,9 +242,9 @@
 				</Textbox>
 
 				<DSComponent>
-					<div class="bar bg-ds-theme-slate w-lg"></div>
-					<div class="bar-lg bg-ds-theme-green w-lg"></div>
-					<div class="bar-lg-reverse bg-ds-theme-darkpurple w-"></div>
+					<div class="bar ds-slate w-lg"></div>
+					<div class="bar-lg ds-green w-lg"></div>
+					<div class="bar-lg-reverse ds-darkpurple w-"></div>
 				</DSComponent>
 
 				<CodeSnippet code={snippets.bars} />
