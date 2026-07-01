@@ -17,9 +17,11 @@
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
 
-<div class="flex md:gap-2">
+<div class="flex md:gap-2 flex-col md:flex-row">
 	<!-- side -->
-	<div class="flex flex-col pl-3 md:pl-7.5 pt-7.5 gap-3 h-full">
+	<div
+		class="grid m:flex m:flex-row flex-col pl-4 md:pl-7.5 pt-7.5 gap-3 md:h-full h-fit grid-cols-4 min-w-max md:grid-cols-none md:w-fit shrink-0"
+	>
 		<a href="#colors" draggable="false">
 			<button class="ds-pink">Colors</button>
 		</a>
@@ -53,7 +55,7 @@
 	</div>
 	<!-- main -->
 	<div class="h-dvh w-full m:min-w-full m-4">
-		<main class="flex flex-col pictochat-window pb-192 m:min-w-full w-full">
+		<main class="flex flex-col pictochat-window pb-192 m:min-w-full w-full overflow-x-auto">
 			<Textbox bgimage={dscsspictochat}>
 				<header class="ds-fuschia-50">mkgzr</header>
 			</Textbox>
