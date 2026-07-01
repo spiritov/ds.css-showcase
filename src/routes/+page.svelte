@@ -315,7 +315,7 @@
 					<span>An optional selection / highlight class is available for pictochat elements.</span>
 				</Textbox>
 				<DSComponent>
-					<div class="pictochat-window w-121 h-48">
+					<div class="pictochat-window">
 						<div class="pictochat-message pictochat-enter-highlight">Now joining..</div>
 						<div class="pictochat-message">
 							<header class="ds-blue-50">satellites</header>

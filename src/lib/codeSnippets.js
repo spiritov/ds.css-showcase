@@ -82,18 +82,13 @@ const info = `<div class="info">
 	</div>
 </div>`;
 
-const pictochat = `<div class="ds-grid-lg">
-	<div class="pictochat-window">
-		<div class="pictochat-message pictochat-enter-highlight">Now joining..</div>
-    <div class="pictochat-message">
-							<header class="ds-blue-50">satellites</header>
-							<span
-								>cause the feelings come and go like flashing lights, but you never leave my
-								satellite</span
-							>
-						</div>
-		<div class="pictochat-status pictochat-exit-highlight">Now leaving..</div>
+const pictochat = `<div class="pictochat-window">
+	<div class="pictochat-message pictochat-enter-highlight">Now joining..</div>
+	<div class="pictochat-message">
+		<header class="ds-blue-50">satellites</header>
+		<span>placeholder text</span>
 	</div>
+	<div class="pictochat-status pictochat-exit-highlight">Now leaving..</div>
 </div>`;
 
 const colors = `ds-slate   ds-maroon      ds-red         ds-pink
