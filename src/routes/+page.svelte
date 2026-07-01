@@ -53,7 +53,7 @@
 	</div>
 	<!-- main -->
 	<div class="h-dvh w-full m-4">
-		<main class="flex flex-col pictochat-window pb-192 w-full">
+		<main class="flex flex-col pictochat-window pb-192 w-full overflow-y-scroll">
 			<Textbox bgimage={dscsspictochat}>
 				<header class="ds-fuschia-50">mkgzr</header>
 			</Textbox>
