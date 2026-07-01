@@ -8,7 +8,7 @@
 </script>
 
 <button
-	class="button-lg -mb-2 {show ? '' : 'bg-ds-teal'}"
+	class="button-lg -mb-2 {show ? '' : 'ds-teal'}"
 	onclick={() => {
 		show = !show;
 	}}>{!show ? 'show' : 'hide'} code</button
