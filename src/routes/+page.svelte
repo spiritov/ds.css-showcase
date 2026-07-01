@@ -101,7 +101,7 @@
 					>
 					<Textbox>
 						<header class="ds-blue-50">Note</header>
-						<span>For other uses, they're also css variables (ex. --color-ds-theme-blue).</span>
+						<span>For other uses, they're also css variables (ex. --color-ds-blue).</span>
 					</Textbox>
 					<Textbox>
 						<span>Add "-50" (ex. ds-blue-50) to use a lighter version of any color.</span>
