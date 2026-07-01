@@ -54,8 +54,8 @@
 		</a>
 	</div>
 	<!-- main -->
-	<div class="h-dvh w-full m:min-w-full m-4">
-		<main class="flex flex-col pictochat-window pb-192 m:min-w-full w-full overflow-x-auto">
+	<div class="h-dvh min-w-max w-full m:w-full m-4">
+		<main class="flex flex-col pictochat-window pb-192 m:min-w-full min-w-max w-full">
 			<Textbox bgimage={dscsspictochat}>
 				<header class="ds-fuschia-50">mkgzr</header>
 			</Textbox>
