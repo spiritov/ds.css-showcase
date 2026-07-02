@@ -175,6 +175,13 @@
 							<div class="input-after"></div>
 						</div>
 					</label>
+
+					<label>
+						<span>another label</span>
+						<div class="input-wrapper">
+							<input type="text" class="input-lg" />
+						</div>
+					</label>
 				</DSComponent>
 				<CodeSnippet code={snippets.input} />
 			</div>

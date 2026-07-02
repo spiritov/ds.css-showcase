@@ -17,6 +17,13 @@ const input = `<label>
 		<input type="text" />
 		<div class="input-after"></div>
 	</div>
+</label>
+
+<label>
+	<span>another label</span>
+	<div class="input-wrapper">
+		<input type="text" class="input-lg" />
+	</div>
 </label>`;
 
 const radioButtons = `<fieldset>
