@@ -68,12 +68,12 @@
 				<span
 					>Things are still a work-in-progress and not always thoroughly tested! Suggestions are
 					welcome on the GitHub's <a
-						class="text-ds-theme-blue"
+						class="text-ds-blue"
 						href="https://github.com/spiritov/ds.css/discussions"
 						target="_blank">Discussions</a
 					>
 					page, and
-					<a class="text-ds-theme-blue" href="https://github.com/spiritov/ds.css" target="_blank"
+					<a class="text-ds-blue" href="https://github.com/spiritov/ds.css" target="_blank"
 						>issues</a
 					></span
 				> are too.
@@ -81,9 +81,7 @@
 
 			<Textbox>
 				See the
-				<a class="text-ds-theme-blue" href="https://github.com/spiritov/ds.css" target="_blank"
-					>GitHub</a
-				>
+				<a class="text-ds-blue" href="https://github.com/spiritov/ds.css" target="_blank">GitHub</a>
 				to get started, and use this page's sidebar to see what's included!
 			</Textbox>
 
