@@ -74,7 +74,8 @@
 		--height-details-p: 94px;
 		--height-bar: 32px;
 		--height-bar-lg: 46px;
-		--height-pictochat-header: 36px;
+		/* exact is 36px */
+		--height-pictochat-header: 34px;
 		--height-info: 96px;
 		--height-info-container: 90px;
 		--height-info-label: 26px;
@@ -860,6 +861,7 @@
 		margin-left: calc(var(--text-padding) * -2);
 		display: inline-block;
 		translate: 0 calc(-4px);
+		margin-bottom: -4px;
 		text-wrap: nowrap;
 		align-content: end;
 
