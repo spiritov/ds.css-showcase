@@ -104,7 +104,7 @@ ds-green   ds-teal        ds-turquoise   ds-blue
 ds-navy    ds-darkpurple  ds-magenta     ds-fuschia`;
 
 const calendar = `<!-- in your html's <head> -->
-<script type="module" src="./ds-calendar.js"></script>
+<script type="module" src="./widgets/ds-calendar.js"></script>
 
 <!-- in your html -->
 <ds-calendar></ds-calendar>
