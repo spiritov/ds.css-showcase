@@ -26,7 +26,7 @@
 <div class="flex md:gap-2 flex-col md:flex-row">
 	<!-- side -->
 	<div
-		class="grid m:flex m:flex-row flex-col pl-4 md:pl-7 pt-7 gap-3 md:h-full h-fit grid-cols-4 min-w-max md:grid-cols-none md:w-fit shrink-0 -ml-px -mt-px"
+		class="grid m:flex m:flex-row flex-col pl-4 md:pl-7 pt-7 gap-3 md:h-full h-fit grid-cols-4 min-w-max md:grid-cols-none md:w-fit shrink-0"
 	>
 		<a href="#colors" draggable="false">
 			<button class="ds-pink">Colors</button>
@@ -103,7 +103,7 @@
 			</div>
 
 			<div class="pictochat-status" id="colors">Colors</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span
 						>16 themed colors are available to set background colors. They work well with some
@@ -142,7 +142,7 @@
 
 			<!-- accordion -->
 			<div class="pictochat-status" id="accordion">Accordion</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span>Accordion headers can be colored.</span>
 				</Textbox>
@@ -160,7 +160,7 @@
 
 			<!-- buttons -->
 			<div class="pictochat-status" id="buttons">Buttons</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span>Buttons have 3 widths, and can be colored.</span>
 				</Textbox>
@@ -174,7 +174,7 @@
 
 			<!-- input -->
 			<div class="pictochat-status" id="input">Input</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span>Inputs have optional bumpers to go before and after them.</span>
 				</Textbox>
@@ -200,7 +200,7 @@
 
 			<!-- radio buttons -->
 			<div class="pictochat-status" id="radio">Radio Buttons</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span
 						>Radio buttons need a color to appear selected.This example uses a css grid for its
@@ -240,7 +240,7 @@
 
 			<!-- grids -->
 			<div class="pictochat-status" id="grids">Grids</div>
-			<div class="flex flex-col gap-4 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-4 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span>Grids should be provided with a width/height if they're empty.</span>
 				</Textbox>
@@ -255,7 +255,7 @@
 
 			<!-- bars -->
 			<div class="pictochat-status" id="bars">Bars</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span>Bars can appear colored.</span>
 				</Textbox>
@@ -271,7 +271,7 @@
 
 			<!-- alert -->
 			<div class="pictochat-status" id="alertpopup">Alert</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span
 						>Alerts can be paired with an optional loading animation (which could be used on its
@@ -312,7 +312,7 @@
 
 			<!-- info / header -->
 			<div class="pictochat-status" id="infoheader">Info / Header Box</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<DSComponent>
 					<div class="info">
 						<div class="info-square">image</div>
@@ -329,7 +329,7 @@
 
 			<!-- pictochat -->
 			<div class="pictochat-status" id="pictochat">Pictochat</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span>An optional selection / highlight class is available for pictochat elements.</span>
 				</Textbox>
@@ -351,7 +351,7 @@
 
 			<!-- calendar -->
 			<div class="pictochat-status" id="calendar">Calendar</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<header class="ds-darkpurple-50">Important</header>
 					<span
