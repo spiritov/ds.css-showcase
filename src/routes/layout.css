@@ -1,2 +1,2 @@
 @import 'tailwindcss';
-@import './ds.css';
+@import '@spiritov/ds.css' layer(components);

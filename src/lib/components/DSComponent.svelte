@@ -16,7 +16,7 @@
 		padding-inline: 0.25rem;
 		width: calc(0.25rem * 117);
 
-		border-image: url('./assets/pictochat_status.svg') 8;
+		border-image: url('/src/routes/assets/svg/pictochat_status.svg') 8;
 
 		clip-path: polygon(
 			/* bottom left */ 8px 100%,

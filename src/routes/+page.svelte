@@ -1,13 +1,19 @@
 <script>
 	import dscsspictochat from '$lib/assets/ds-css.png';
 
-	import DSComponent from '$lib/DSComponent.svelte';
-	import Textbox from '$lib/Textbox.svelte';
+	import DSComponent from '$lib/components/DSComponent.svelte';
+	import Textbox from '$lib/components/Textbox.svelte';
+	import CodeSnippet from '$lib/components/CodeSnippet.svelte';
 
 	import * as snippets from '$lib/codeSnippets';
 
 	import githubDark from 'svelte-highlight/styles/github-dark';
-	import CodeSnippet from '$lib/CodeSnippet.svelte';
+
+	// import wcs for this page
+	// eslint-disable-next-line no-unused-vars
+	import Calendar from './widgets/Calendar.wc.svelte';
+	// eslint-disable-next-line no-unused-vars
+	import Clock from './widgets/Calendar.wc.svelte';
 </script>
 
 <svelte:head>
@@ -20,7 +26,7 @@
 <div class="flex md:gap-2 flex-col md:flex-row">
 	<!-- side -->
 	<div
-		class="grid m:flex m:flex-row flex-col pl-4 md:pl-7.5 pt-7.5 gap-3 md:h-full h-fit grid-cols-4 min-w-max md:grid-cols-none md:w-fit shrink-0"
+		class="grid m:flex m:flex-row flex-col pl-4 md:pl-7 pt-7 gap-3 md:h-full h-fit grid-cols-4 min-w-max md:grid-cols-none md:w-fit shrink-0 -ml-px -mt-px"
 	>
 		<a href="#colors" draggable="false">
 			<button class="ds-pink">Colors</button>
@@ -47,11 +53,17 @@
 			<button class="ds-orange">Alert / Popup</button>
 		</a>
 		<a href="#infoheader" draggable="false">
-			<button class="ds-red">Info Header Box</button>
+			<button class="ds-red">Info Box</button>
 		</a>
 		<a href="#pictochat" draggable="false">
-			<button class="ds-turquoise">Pictochat</button>
+			<button class="ds-fuschia">Pictochat</button>
 		</a>
+		<a href="#calendar" draggable="false">
+			<button class="ds-darkpurple">Calendar</button>
+		</a>
+		<!-- <a href="#clock" draggable="false">
+			<button class="ds-darkpurple">Clock</button>
+		</a> -->
 	</div>
 	<!-- main -->
 	<div class="h-dvh min-w-max w-full m:w-full m-4">
@@ -335,6 +347,30 @@
 					</div>
 				</DSComponent>
 				<CodeSnippet code={snippets.pictochat} />
+			</div>
+
+			<!-- calendar -->
+			<div class="pictochat-status" id="calendar">Calendar</div>
+			<div class="flex flex-col gap-2 ml-4 md:ml-12 mb-2">
+				<Textbox>
+					<header class="ds-darkpurple-50">Important</header>
+					<span
+						>The calendar is a Web Component, and is imported separately as a JavaScript module.</span
+					>
+				</Textbox>
+				<Textbox>
+					<span
+						>The calendar can be colored with a style attribute, and can have its border hidden. It
+						also updates on day changes!</span
+					>
+				</Textbox>
+				<DSComponent>
+					<div class="flex gap-4">
+						<ds-calendar></ds-calendar>
+						<ds-calendar style="--color: var(--color-ds-blue)" hide-border=""></ds-calendar>
+					</div>
+				</DSComponent>
+				<CodeSnippet code={snippets.calendar} />
 			</div>
 		</main>
 	</div>

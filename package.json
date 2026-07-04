@@ -4,8 +4,9 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --config vite_dev.config.js",
 		"build": "vite build",
+		"wc": "vite build --config vite_wc.config.js",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"lint": "prettier --check . && eslint .",
@@ -28,9 +29,11 @@
 		"prettier-plugin-tailwindcss": "^0.8.0",
 		"svelte": "^5.56.1",
 		"tailwindcss": "^4.3.0",
-		"vite": "^8.0.16"
+		"vite": "^8.0.16",
+		"vite-plugin-css-injected-by-js": "^5.0.1"
 	},
 	"dependencies": {
+		"@spiritov/ds.css": "^2.2.0",
 		"svelte-highlight": "^7.13.0"
 	}
 }

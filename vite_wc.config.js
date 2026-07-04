@@ -1,18 +1,21 @@
 import tailwindcss from '@tailwindcss/vite';
 import adapter from '@sveltejs/adapter-cloudflare';
-import { sveltekit } from '@sveltejs/kit/vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { defineConfig } from 'vite';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import { resolve } from 'node:path';
 
 export default defineConfig({
 	plugins: [
 		tailwindcss(),
-		sveltekit({
+		cssInjectedByJsPlugin(),
+		svelte({
 			compilerOptions: ({ filename }) => {
 				return {
 					// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
-					runes: filename.split(/[/\\]/).includes('node_modules') ? undefined : true
+					runes: filename.split(/[/\\]/).includes('node_modules') ? undefined : true,
 					// web components
-					// customElement: true
+					customElement: true
 				};
 			},
 
@@ -34,5 +37,13 @@ export default defineConfig({
 				}
 			})
 		})
-	]
+	],
+	build: {
+		lib: {
+			entry: resolve(__dirname, 'src/index.js'),
+			name: 'DSCalendar',
+			fileName: 'ds-calendar',
+			formats: ['es']
+		}
+	}
 });
