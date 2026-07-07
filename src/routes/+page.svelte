@@ -206,8 +206,7 @@
 			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
 				<Textbox>
 					<span
-						>Radio buttons need a color to appear selected.This example uses a css grid for its
-						layout.</span
+						>Radio buttons need a color to appear selected.</span
 					>
 					<Textbox>
 						<header class="ds-darkpurple-50">Important</header>
