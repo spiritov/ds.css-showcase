@@ -58,7 +58,7 @@
 		style:box-shadow={showBorder ? '0px 0px 0px 2px #d3d3d3,0px 0px 0px 4px #e3e3e3' : 'none'}
 	>
 		<!-- day of week headers -->
-		<div class="grid grid-cols-7 border-b-2 gap-0.5 bg-black">
+		<div class="grid grid-cols-7 border-b-2 gap-[2px] bg-black">
 			{@render dayOfWeekHeader('Su')}
 			{@render dayOfWeekHeader('Mo')}
 			{@render dayOfWeekHeader('Tu')}
@@ -70,7 +70,7 @@
 		<!-- calendar days -->
 		<!-- font 14.5px looks sharpest on firefox -->
 		<div
-			class="grid grid-cols-7 bg-(--color-ds-calendar-border-grey) gap-0.5 text-[14.5px] tracking-[1px]"
+			class="grid grid-cols-7 bg-(--color-ds-calendar-border-grey) gap-[2px] text-[14.5px] tracking-[1px]"
 		>
 			{#each { length: calendarWeeks * 7 }, i}
 				<!-- 0 indexed-->
@@ -112,7 +112,7 @@
 	<div
 		class="border-black h-[30px] text-white text-center align-middle text-[14.5px] tracking-[1px] bg-(--color-ds-calendar-bg-header) text-sm first:bg-(--color-ds-calendar-header-bg-sunday) last:bg-(--color-ds-calendar-header-bg-saturday)"
 	>
-		<span class="relative top-[3px] left-0.5">{day}</span>
+		<span class="relative top-[3px] left-[2px]">{day}</span>
 	</div>
 {/snippet}
 
@@ -124,7 +124,7 @@
 
 	:root {
     --color: #61829a;
-    
+
 		--color-ds-calendar-bg-header: #696969;
 		--color-ds-calendar-header-bg-sunday: #d30000;
 		--color-ds-calendar-header-bg-saturday: #0041c3;

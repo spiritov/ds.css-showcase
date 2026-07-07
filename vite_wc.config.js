@@ -41,8 +41,8 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: resolve(__dirname, 'src/index.js'),
-			name: 'DSCalendar',
-			fileName: 'ds-calendar',
+			name: 'DSClock',
+			fileName: 'ds-clock',
 			formats: ['es']
 		}
 	}
