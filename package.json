@@ -33,7 +33,7 @@
 		"vite-plugin-css-injected-by-js": "^5.0.1"
 	},
 	"dependencies": {
-		"@spiritov/ds.css": "^2.6.0",
+		"@spiritov/ds.css": "^2.6.1",
 		"svelte-highlight": "^7.13.0"
 	}
 }
