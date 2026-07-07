@@ -110,6 +110,16 @@ const calendar = `<!-- in your html's <head> -->
 <ds-calendar></ds-calendar>
 <ds-calendar style="--color: var(--color-ds-blue)" hide-border></ds-calendar>`;
 
+const clock = `<!-- in your html's <head> -->
+<script type="module" src="./widgets/ds-clock.js"></script>
+
+<!-- in your html -->
+<ds-clock></ds-clock>
+
+<div class="ds-grid" style="width: fit-content;">
+  <ds-clock style="--color: var(--color-ds-blue)" hide-border></ds-clock>
+</div>`;
+
 export {
 	accordion,
 	button,
@@ -121,5 +131,6 @@ export {
 	info,
 	pictochat,
 	colors,
-	calendar
+	calendar,
+  clock
 };

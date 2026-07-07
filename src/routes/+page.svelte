@@ -8,12 +8,14 @@
 	import * as snippets from '$lib/codeSnippets';
 
 	import githubDark from 'svelte-highlight/styles/github-dark';
-
-	// import wcs for this page
-	// eslint-disable-next-line no-unused-vars
-	import Calendar from './widgets/Calendar.wc.svelte';
-	// eslint-disable-next-line no-unused-vars
-	import Clock from './widgets/Calendar.wc.svelte';
+  
+  import { onMount } from 'svelte';
+  // import Calendar from './widgets/Calendar.wc.svelte';
+	// import Clock from './widgets/Clock.wc.svelte';
+  onMount(async () => {
+    await import("@spiritov/ds.css/dist/widgets/ds-calendar.js");
+    await import("@spiritov/ds.css/dist/widgets/ds-clock.js");
+   });
 </script>
 
 <svelte:head>
@@ -61,13 +63,14 @@
 		<a href="#calendar" draggable="false">
 			<button class="ds-darkpurple">Calendar</button>
 		</a>
-		<!-- <a href="#clock" draggable="false">
+		 <a href="#clock" draggable="false">
 			<button class="ds-darkpurple">Clock</button>
-		</a> -->
+		</a>
 	</div>
 	<!-- main -->
 	<div class="h-dvh min-w-max w-full m:w-full m-4">
 		<main class="flex flex-col pictochat-window pb-192 m:min-w-full min-w-max w-full">
+
 			<Textbox bgimage={dscsspictochat}>
 				<header class="ds-fuschia-50">mkgzr</header>
 			</Textbox>
@@ -367,11 +370,37 @@
 				<DSComponent>
 					<div class="flex gap-4">
 						<ds-calendar></ds-calendar>
+
 						<ds-calendar style="--color: var(--color-ds-blue)" hide-border=""></ds-calendar>
 					</div>
 				</DSComponent>
 				<CodeSnippet code={snippets.calendar} />
-			</div>
+</div>
+        			<!-- clock -->
+			<div class="pictochat-status" id="clock">Clock</div>
+			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
+				<Textbox>
+					<header class="ds-darkpurple-50">Important</header>
+					<span
+						>The clock is a Web Component, and is imported separately as a JavaScript module.</span
+					>
+				</Textbox>
+				<Textbox>
+					<span
+						>The clock can be colored with a style attribute, and can have its border hidden.</span
+					>
+				</Textbox>
+				<DSComponent>
+					<div class="flex gap-4">
+						<ds-clock></ds-clock>
+
+            <div class="ds-grid" style="width: fit-content;">
+              <ds-clock style="--color: var(--color-ds-blue)" hide-border=""></ds-clock>
+            </div>
+					</div>
+				</DSComponent>
+				<CodeSnippet code={snippets.clock} />
+        </div>
 		</main>
 	</div>
 </div>

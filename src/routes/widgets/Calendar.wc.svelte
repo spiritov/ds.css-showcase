@@ -123,6 +123,8 @@
 	}
 
 	:root {
+    --color: #61829a;
+    
 		--color-ds-calendar-bg-header: #696969;
 		--color-ds-calendar-header-bg-sunday: #d30000;
 		--color-ds-calendar-header-bg-saturday: #0041c3;
