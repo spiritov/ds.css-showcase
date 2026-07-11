@@ -46,8 +46,8 @@
 				{@render NavItem('#bars', 'ds-slate', 'Bars')}
 				{@render NavItem('#buttons', 'ds-blue', 'Buttons')}
 				{@render NavItem('#radio-buttons', 'ds-blue', 'Radio Buttons')}
-				{@render NavItem('#radio-buttons', 'ds-slate', 'Grids')}
-				{@render NavItem('#radio-buttons', 'ds-slate', 'Info Header')}
+				{@render NavItem('#grids', 'ds-slate', 'Grids')}
+				{@render NavItem('#info-box', 'ds-slate', 'Info Header')}
 				{@render NavItem('#input', 'ds-orange', 'Input')}
 				{@render NavItem('#pictochat', 'ds-turquoise', 'Pictochat')}
 			</div>
