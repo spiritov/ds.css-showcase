@@ -357,7 +357,7 @@
 				<div class="pictochat-window">
 					<div class="pictochat-message pictochat-enter-highlight">Now joining..</div>
 					<div class="pictochat-message">
-						<header class="ds-blue-50">satellites</header>
+						<header class="{active}-50">satellites</header>
 						<span
 							>cause the feelings come and go like flashing lights, but you never leave my satellite</span
 						>
