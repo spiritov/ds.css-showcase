@@ -65,9 +65,9 @@
 		<!-- clock / calendar -->
 		<div class="absolute right-0 top-0 flex gap-2 xl:visible invisible">
 			<div class="ds-grid size-fit">
-				<ds-clock hide-border=""></ds-clock>
+				<ds-clock style="--color: var(--color-{active})" hide-border=""></ds-clock>
 			</div>
-			<ds-calendar hide-border=""></ds-calendar>
+			<ds-calendar style="--color: var(--color-{active})" hide-border=""></ds-calendar>
 		</div>
 
 		<!-- intro -->
