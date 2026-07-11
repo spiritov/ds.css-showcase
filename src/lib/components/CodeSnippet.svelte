@@ -8,14 +8,14 @@
 </script>
 
 <button
-	class="button-lg -mb-2 {show ? '' : 'ds-teal'}"
+	class="button-lg {show ? '' : 'ds-teal'}"
 	onclick={() => {
 		show = !show;
 	}}>{!show ? 'show' : 'hide'} code</button
 >
 
 {#if show}
-	<div class="relative w-xl">
+	<div class="relative w-fit min-w-[532px]">
 		<Highlight {language} {code} />
 		<CopyButton
 			{code}

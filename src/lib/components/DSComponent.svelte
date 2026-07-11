@@ -2,8 +2,8 @@
 	let { children } = $props();
 </script>
 
-<div class="ds-grid-lg dsc min-w-xl">
-	<div class="bg-black/25 grid place-content-center p-8 gap-1 -m-4">
+<div class="ds-grid-lg dsc bg-top">
+	<div class="bg-black/40 grid place-content-center p-8 gap-1 -m-4">
 		{@render children()}
 	</div>
 </div>
@@ -13,8 +13,9 @@
 		border-style: solid;
 		border-width: 8px;
 		background-color: black;
-		padding-inline: 0.25rem;
-		width: calc(0.25rem * 117);
+		padding-inline: 4px;
+		min-width: 468px;
+		max-width: fit-content;
 
 		border-image: url('/src/routes/assets/svg/pictochat_status.svg') 8;
 

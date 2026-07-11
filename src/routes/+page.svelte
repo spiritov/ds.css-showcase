@@ -1,21 +1,28 @@
 <script>
 	import dscsspictochat from '$lib/assets/ds-css.png';
-
-	import DSComponent from '$lib/components/DSComponent.svelte';
-	import Textbox from '$lib/components/Textbox.svelte';
-	import CodeSnippet from '$lib/components/CodeSnippet.svelte';
-
-	import * as snippets from '$lib/codeSnippets';
+	import { snippets } from '$lib/snippets.svelte';
 
 	import githubDark from 'svelte-highlight/styles/github-dark';
-  
-  import { onMount } from 'svelte';
-  // import Calendar from './widgets/Calendar.wc.svelte';
+
+	import { onMount } from 'svelte';
+	import Colors from '$lib/components/Colors.svelte';
+	import DSComponent from '$lib/components/DSComponent.svelte';
+	import CodeSnippet from '$lib/components/CodeSnippet.svelte';
+	// import Calendar from './widgets/Calendar.wc.svelte';
 	// import Clock from './widgets/Clock.wc.svelte';
-  onMount(async () => {
-    await import("@spiritov/ds.css/dist/widgets/ds-calendar.js");
-    await import("@spiritov/ds.css/dist/widgets/ds-clock.js");
-   });
+	onMount(async () => {
+		await import('@spiritov/ds.css/dist/widgets/ds-calendar.js');
+		await import('@spiritov/ds.css/dist/widgets/ds-clock.js');
+	});
+
+	let active = $state('ds-slate');
+
+	// update active color for snippets
+	$effect(() => {
+		for (const [k, v] of Object.entries(snippets)) {
+			snippets[k] = v.replaceAll('ds-color', active);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -25,381 +32,399 @@
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
 
-<div class="flex md:gap-2 flex-col md:flex-row">
-	<!-- side -->
-	<div
-		class="grid m:flex m:flex-row flex-col pl-4 md:pl-7 pt-7 gap-3 md:h-full h-fit grid-cols-4 min-w-max md:grid-cols-none md:w-fit shrink-0"
-	>
-		<a href="#colors" draggable="false">
-			<button class="ds-pink">Colors</button>
-		</a>
-		<a href="#accordion" draggable="false">
-			<button class="ds-red">Accordion</button>
-		</a>
-		<a href="#buttons" draggable="false">
-			<button class="ds-blue">Buttons</button>
-		</a>
-		<a href="#input" draggable="false">
-			<button class="ds-green">Input</button>
-		</a>
-		<a href="#radio" draggable="false">
-			<button class="ds-green">Radio Buttons</button>
-		</a>
-		<a href="#grids" draggable="false">
-			<button class="ds-slate">Grids</button>
-		</a>
-		<a href="#bars" draggable="false">
-			<button class="ds-slate">Bars</button>
-		</a>
-		<a href="#alertpopup" draggable="false">
-			<button class="ds-orange">Alert / Popup</button>
-		</a>
-		<a href="#infoheader" draggable="false">
-			<button class="ds-red">Info Box</button>
-		</a>
-		<a href="#pictochat" draggable="false">
-			<button class="ds-fuschia">Pictochat</button>
-		</a>
-		<a href="#calendar" draggable="false">
-			<button class="ds-darkpurple">Calendar</button>
-		</a>
-		 <a href="#clock" draggable="false">
-			<button class="ds-darkpurple">Clock</button>
-		</a>
-	</div>
-	<!-- main -->
-	<div class="h-dvh min-w-max w-full m:w-full m-4">
-		<main class="flex flex-col pictochat-window pb-192 m:min-w-full min-w-max w-full">
-
-			<Textbox bgimage={dscsspictochat}>
-				<header class="ds-fuschia-50">mkgzr</header>
-			</Textbox>
-			<div class="pictochat-status pictochat-exit-highlight">
-				ds.css is a pure css framework and love letter to the DS / DS Lite's firmware.
+<div class="flex gap-7 mt-5 mr-5 overflow-auto">
+	<!-- sidebar -->
+	<nav class="flex flex-col gap-3 ml-7 mt-2 fixed">
+		{@render NavItem('', 'ds-pink', 'Intro')}
+		{@render NavItem('#colors', `${active}`, 'Colors')}
+		{@render NavItem('#grid-sizing', 'ds-slate', 'Grid Sizing')}
+		<div>
+			<span>Components</span>
+			<div class="ml-4 flex flex-col gap-3">
+				{@render NavItem('#accordion', 'ds-red', 'Accordion')}
+				{@render NavItem('#alert', 'ds-orange', 'Alert')}
+				{@render NavItem('#bars', 'ds-slate', 'Bars')}
+				{@render NavItem('#buttons', 'ds-blue', 'Buttons')}
+				{@render NavItem('#radio-buttons', 'ds-blue', 'Radio Buttons')}
+				{@render NavItem('#radio-buttons', 'ds-slate', 'Grids')}
+				{@render NavItem('#radio-buttons', 'ds-slate', 'Info Header')}
+				{@render NavItem('#input', 'ds-orange', 'Input')}
+				{@render NavItem('#pictochat', 'ds-turquoise', 'Pictochat')}
 			</div>
-
-			<Textbox>
-				<header class="ds-blue-50">Note (06/30/26)</header>
-				<span
-					>Things are still a work-in-progress and not always thoroughly tested! Suggestions are
-					welcome on the GitHub's <a
-						class="text-ds-blue"
-						href="https://github.com/spiritov/ds.css/discussions"
-						target="_blank">Discussions</a
-					>
-					page, and
-					<a class="text-ds-blue" href="https://github.com/spiritov/ds.css" target="_blank"
-						>issues</a
-					></span
-				> are too.
-			</Textbox>
-
-			<Textbox>
-				See the
-				<a class="text-ds-blue" href="https://github.com/spiritov/ds.css" target="_blank">GitHub</a>
-				to get started, and use this page's sidebar to see what's included!
-			</Textbox>
-
-			<div class="alert">
-				Manually resizing some components may look off (ex. buttons). The DS has a single repeating
-				column for some of it's dithered gradients also included here.
+		</div>
+		<div>
+			<span>Web Components</span>
+			<div class="ml-4 flex flex-col gap-3">
+				{@render NavItem('#clock', 'ds-magenta', 'Calendar')}
+				{@render NavItem('#clock', 'ds-magenta', 'Clock')}
 			</div>
-
-			<div class="pictochat-status" id="colors">Colors</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<span
-						>16 themed colors are available to set background colors. They work well with some
-						component backgrounds!</span
-					>
-					<Textbox>
-						<header class="ds-blue-50">Note</header>
-						<span>For other uses, they're also css variables (ex. --color-ds-blue).</span>
-					</Textbox>
-					<Textbox>
-						<span>Add "-50" (ex. ds-blue-50) to use a lighter version of any color.</span>
-					</Textbox>
-				</Textbox>
-				<DSComponent>
-					<div class="grid grid-cols-4 w-fit gap-3.5">
-						<button class="button-square ds-slate"></button>
-						<button class="button-square ds-maroon"></button>
-						<button class="button-square ds-red"></button>
-						<button class="button-square ds-pink"></button>
-						<button class="button-square ds-orange"></button>
-						<button class="button-square ds-yellow"></button>
-						<button class="button-square ds-neonyellow"></button>
-						<button class="button-square ds-lime"></button>
-						<button class="button-square ds-green"></button>
-						<button class="button-square ds-teal"></button>
-						<button class="button-square ds-turquoise"></button>
-						<button class="button-square ds-blue"></button>
-						<button class="button-square ds-navy"></button>
-						<button class="button-square ds-darkpurple"></button>
-						<button class="button-square ds-magenta"></button>
-						<button class="button-square ds-fuschia"></button>
-					</div>
-				</DSComponent>
-				<CodeSnippet code={snippets.colors} />
+		</div>
+	</nav>
+	<!-- content -->
+	<main class="pictochat-window w-full relative ml-56">
+		<!-- clock / calendar -->
+		<div class="absolute right-0 top-0 flex gap-2 xl:visible invisible">
+			<div class="ds-grid size-fit">
+				<ds-clock hide-border=""></ds-clock>
 			</div>
+			<ds-calendar hide-border=""></ds-calendar>
+		</div>
 
-			<!-- accordion -->
-			<div class="pictochat-status" id="accordion">Accordion</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<span>Accordion headers can be colored.</span>
-				</Textbox>
-				<DSComponent>
-					<details>
-						<summary>Details</summary>
-						<p>
-							The DS Lite Is An Insane Budget System For 2026. Did You Know? Modding A 3DS Is
-							Surprisingly Easy
-						</p>
-					</details>
-				</DSComponent>
-				<CodeSnippet code={snippets.accordion} />
-			</div>
-
-			<!-- buttons -->
-			<div class="pictochat-status" id="buttons">Buttons</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<span>Buttons have 3 widths, and can be colored.</span>
-				</Textbox>
-				<DSComponent>
+		<!-- intro -->
+		<div
+			id="intro"
+			class="pictochat-message h-[140px]"
+			style:background-image={`url(${dscsspictochat})`}
+		>
+			<header class="ds-magenta-50">spiritov</header>
+		</div>
+		{@render PictoHeader(
+			'',
+			"ds.css is a css framework and love letter to the DS / DS Lite's firmware.",
+			true
+		)}
+		<div class="pictochat-message">
+			<header class="ds-blue-50">Installation</header>
+			<span
+				>Please see the <a href="https://github.com/spiritov/ds.css#dscss" target="_blank"
+					>GitHub's readme</a
+				> to get started!</span
+			>
+		</div>
+		<div class="pictochat-message">
+			<span
+				>ds.css uses a mix of semantic html and class names for its styling. For example, a button
+				can be created with <strong>&#x3C;button&#x3E;</strong>, but a wider button needs
+				<strong>class='button-lg'</strong> applied.</span
+			>
+			<div class="pictochat-message ds-grid relative h-[140px]">
+				<header class="ds-orange-50">Buttons</header>
+				<div class="absolute left-29.75 top-7 flex flex-col gap-2">
 					<button></button>
 					<button class="button-lg"></button>
-					<button class="button-square">X</button>
-				</DSComponent>
-				<CodeSnippet code={snippets.button} />
+				</div>
 			</div>
+		</div>
 
-			<!-- input -->
-			<div class="pictochat-status" id="input">Input</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<span>Inputs have optional bumpers to go before and after them.</span>
-				</Textbox>
-				<DSComponent>
-					<label>
-						<span>label</span>
-						<div class="input-wrapper">
-							<div class="input-before"></div>
-							<input type="text" />
-							<div class="input-after"></div>
-						</div>
-					</label>
-
-					<label>
-						<span>another label</span>
-						<div class="input-wrapper">
-							<input type="text" class="input-lg" />
-						</div>
-					</label>
-				</DSComponent>
-				<CodeSnippet code={snippets.input} />
-			</div>
-
-			<!-- radio buttons -->
-			<div class="pictochat-status" id="radio">Radio Buttons</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
+		<!-- colors -->
+		{@render PictoHeader('colors', 'Colors')}
+		<div class="flex flex-col ml-8 gap-1">
+			<div class="pictochat-message">
+				<span
+					>16 theme colors are available for coloring some components with class names. You can
+					click on the colors below to preview how components on this page will look with them.</span
+				>
+				<div class="pictochat-message">
+					<header class="ds-teal-50">Note</header>
 					<span
-						>Radio buttons need a color to appear selected.</span
+						>For other uses, their respective css variables are available, too.
+						<br />
+						(--color-{active})</span
 					>
-					<Textbox>
-						<header class="ds-darkpurple-50">Important</header>
+				</div>
+				<Colors bind:active />
+			</div>
+		</div>
+
+		<!-- grid sizing -->
+		{@render PictoHeader('grid-sizing', 'Grid Sizing')}
+		<div class="flex flex-col ml-8 gap-1">
+			<span class="pictochat-message">
+				2 css variables are available to help set grid sizes and to align components in them.
+			</span>
+			<DSComponent>
+				<div
+					class="ds-grid"
+					style:width="calc(var(--ds-grid-gap) * 12)"
+					style:height="calc(var(--ds-grid-gap) * 3)"
+				>
+					<button
+						class="relative"
+						style:left="calc(var(--ds-grid-gap) * 2 - 2px)"
+						style:top="calc(var(--ds-grid-gap) - 2px)">Button</button
+					>
+				</div>
+			</DSComponent>
+			<CodeSnippet code={snippets.gridSizing} />
+			<DSComponent>
+				<div
+					class="ds-grid-lg"
+					style:width="calc(var(--ds-grid-gap-lg) * 4)"
+					style:height="calc(var(--ds-grid-gap-lg) * 2)"
+				>
+					<button
+						class="relative"
+						style:left="calc((var(--ds-grid-gap) * 0.5) + var(--ds-grid-gap))"
+						style:top="calc(var(--ds-grid-gap) * 1.5)">Button</button
+					>
+				</div>
+			</DSComponent>
+			<CodeSnippet code={snippets.gridSizingLarge} />
+		</div>
+
+		<!-- accordion -->
+		{@render PictoHeader('accordion', 'Accordion')}
+		<div class="flex flex-col ml-8 gap-1">
+			<span class="pictochat-message">Accordion headers can be colored.</span>
+			<DSComponent>
+				<details>
+					<summary class={active}>End Credits</summary>
+					<p>
+						So let's run<br />
+						Make a great escape<br />
+						And I'll be waiting outside for the getaway
+					</p>
+				</details>
+			</DSComponent>
+			<CodeSnippet code={snippets.accordion} />
+		</div>
+
+		<!-- alert -->
+		{@render PictoHeader('alert', 'Alert')}
+		<div class="flex flex-col ml-8 gap-1">
+			<span class="pictochat-message"
+				>Alerts can be paired with a loading animation (which could also be used on its own)!</span
+			>
+			<DSComponent>
+				<div class="alert">
+					<div class="loading-container">
+						<div class="loading-1"></div>
+						<div class="loading-2"></div>
+						<div class="loading-3"></div>
+						<div class="loading-4"></div>
+						<div class="loading-5"></div>
+						<div class="loading-6"></div>
+						<div class="loading-7"></div>
+						<div class="loading-8"></div>
+						<div class="loading-9"></div>
+					</div>
+					<span>Looking for software available for download...</span>
+					<div class="loading-container">
+						<div class="loading-1"></div>
+						<div class="loading-2"></div>
+						<div class="loading-3"></div>
+						<div class="loading-4"></div>
+						<div class="loading-5"></div>
+						<div class="loading-6"></div>
+						<div class="loading-7"></div>
+						<div class="loading-8"></div>
+						<div class="loading-9"></div>
+					</div>
+				</div>
+			</DSComponent>
+			<CodeSnippet code={snippets.alert} />
+		</div>
+
+		<!-- bars -->
+		{@render PictoHeader('bars', 'Bars')}
+		<div class="flex flex-col ml-8 gap-1">
+			<span class="pictochat-message">Bars should be given a width.</span>
+			<DSComponent>
+				<div class="bar w-sm {active}"></div>
+				<div class="bar-lg w-sm {active}"></div>
+				<div class="bar-lg-reverse w-sm {active}"></div>
+			</DSComponent>
+			<CodeSnippet code={snippets.bars} />
+		</div>
+
+		<!-- buttons -->
+		{@render PictoHeader('buttons', 'Buttons')}
+		<div class="flex flex-col ml-8 gap-1">
+			<span class="pictochat-message">Buttons have 3 widths.</span>
+			<DSComponent>
+				<button class={active}></button>
+				<button class="button-lg {active}"></button>
+				<button class="button-square {active}">X</button>
+			</DSComponent>
+			<CodeSnippet code={snippets.buttons} />
+		</div>
+
+		<!-- radio buttons -->
+		{@render PictoHeader('radio-buttons', 'Radio Buttons')}
+		<div class="flex flex-col ml-8 gap-1">
+			<div class="pictochat-message">
+				<span
+					>Radio buttons require a color on each <strong>&#x3C;input&#x3E;</strong> to appear selected.</span
+				>
+				<div class="pictochat-message">
+					<header class="ds-teal-50">Note</header>
+					<span
+						>Bring your own container for the <strong>&#x3C;fieldset&#x3E;</strong>! This example
+						uses a grid for its layout.</span
+					>
+				</div>
+			</div>
+			<DSComponent>
+				<fieldset class="grid grid-cols-2 gap-4">
+					<legend>Select an option</legend>
+					<div class="radio-button">
+						<input id="radio1" type="radio" name="option" class={active} />
+						<label for="radio1">Piece of Cipher</label>
+					</div>
+					<div class="radio-button">
+						<input id="radio2" type="radio" name="option" class={active} />
+						<label for="radio2">Chaining Intention</label>
+					</div>
+					<div class="radio-button">
+						<input id="radio3" type="radio" name="option" class={active} />
+						<label for="radio3">0259 in my room</label>
+					</div>
+					<div class="radio-button">
+						<input id="radio4" type="radio" name="option" class={active} />
+						<label for="radio4">Fantasia Nr.2</label>
+					</div>
+				</fieldset>
+			</DSComponent>
+			<CodeSnippet code={snippets.radioButtons} />
+		</div>
+
+		<!-- grids -->
+		{@render PictoHeader('grids', 'Grids')}
+		<div class="flex flex-col ml-8 gap-1">
+			<span class="pictochat-message"
+				>Grids should be given a width and height (if they have nothing in them).</span
+			>
+			<DSComponent>
+				<div
+					class="ds-grid"
+					style:width="calc(var(--ds-grid-gap) * 12)"
+					style:height="calc(var(--ds-grid-gap) * 6)"
+				></div>
+			</DSComponent>
+			<CodeSnippet code={snippets.grid} />
+			<DSComponent>
+				<div
+					class="ds-grid-lg"
+					style:width="calc(var(--ds-grid-gap-lg) * 4)"
+					style:height="calc(var(--ds-grid-gap-lg) * 2)"
+				></div>
+			</DSComponent>
+			<CodeSnippet code={snippets.gridLarge} />
+		</div>
+
+		<!-- info header -->
+		{@render PictoHeader('info-box', 'Info Box')}
+		<div class="flex flex-col ml-8 gap-1">
+			<DSComponent>
+				<div class="info">
+					<div class="info-square">image</div>
+					<div class="info-container">
+						<div class="info-label">Settings</div>
+						<div class="info-text">
+							Change system settings here. Select the setting you'd like to change.
+						</div>
+					</div>
+				</div>
+			</DSComponent>
+			<CodeSnippet code={snippets.info} />
+		</div>
+
+		<!-- input -->
+		{@render PictoHeader('input', 'Input')}
+		<div class="flex flex-col ml-8 gap-1">
+			<span class="pictochat-message">Bumpers are available to go before or after inputs.</span>
+			<DSComponent>
+				<label>
+					<span>label</span>
+					<div class="input-wrapper">
+						<div class="input-before"></div>
+						<input type="text" />
+						<div class="input-after"></div>
+					</div>
+				</label>
+
+				<label>
+					<span>another label</span>
+					<div class="input-wrapper">
+						<input type="text" class="input-lg" />
+					</div>
+				</label>
+			</DSComponent>
+			<CodeSnippet code={snippets.inputs} />
+		</div>
+
+		<!-- pictochat -->
+		{@render PictoHeader('pictochat', 'Pictochat')}
+		<div class="flex flex-col ml-8 gap-1">
+			<div class="pictochat-message">
+				<span>2 highlight classes are available to highlight text.</span>
+				<div class="pictochat-message">
+					<header class="ds-teal-50">Note</header>
+					<span>{active}-50 versions of colors may fit better with pictochat headers.</span>
+				</div>
+			</div>
+			<DSComponent>
+				<div class="pictochat-window">
+					<div class="pictochat-message pictochat-enter-highlight">Now joining..</div>
+					<div class="pictochat-message">
+						<header class="ds-blue-50">satellites</header>
 						<span
-							>Bring your own container for the &#x3C;fieldset&#x3E;! This example uses a grid for
-							its layout.</span
+							>cause the feelings come and go like flashing lights, but you never leave my satellite</span
 						>
-					</Textbox>
-				</Textbox>
-				<DSComponent>
-					<fieldset class="grid grid-cols-2 gap-4">
-						<legend>Select an option</legend>
-						<div class="radio-button">
-							<input id="radio1" type="radio" name="option" class="ds-fuschia" />
-							<label for="radio1">Piece of Cipher</label>
-						</div>
-						<div class="radio-button">
-							<input id="radio2" type="radio" name="option" class="ds-fuschia" />
-							<label for="radio2">Chaining Intention</label>
-						</div>
-						<div class="radio-button">
-							<input id="radio3" type="radio" name="option" class="ds-fuschia" />
-							<label for="radio3">0259 in my room</label>
-						</div>
-						<div class="radio-button">
-							<input id="radio4" type="radio" name="option" class="ds-fuschia" />
-							<label for="radio4">Fantasia Nr.2</label>
-						</div>
-					</fieldset>
-				</DSComponent>
-				<CodeSnippet code={snippets.radioButtons} />
-			</div>
+					</div>
+					<div class="pictochat-status pictochat-exit-highlight">Now leaving..</div>
+				</div>
+			</DSComponent>
+			<CodeSnippet code={snippets.pictochat} />
+		</div>
 
-			<!-- grids -->
-			<div class="pictochat-status" id="grids">Grids</div>
-			<div class="flex flex-col gap-4 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<span>Grids should be provided with a width/height if they're empty.</span>
-				</Textbox>
-
-				<DSComponent>
-					<div class="ds-grid w-96 h-48"></div>
-					<div class="ds-grid-lg w-96 h-48"></div>
-				</DSComponent>
-
-				<CodeSnippet code={snippets.grids} />
-			</div>
-
-			<!-- bars -->
-			<div class="pictochat-status" id="bars">Bars</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<span>Bars can appear colored.</span>
-				</Textbox>
-
-				<DSComponent>
-					<div class="bar ds-slate w-lg"></div>
-					<div class="bar-lg ds-green w-lg"></div>
-					<div class="bar-lg-reverse ds-darkpurple w-"></div>
-				</DSComponent>
-
-				<CodeSnippet code={snippets.bars} />
-			</div>
-
-			<!-- alert -->
-			<div class="pictochat-status" id="alertpopup">Alert</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
+		<!-- calendar -->
+		{@render PictoHeader('calendar', 'Calendar')}
+		<div class="flex flex-col ml-8 gap-1">
+			<div class="pictochat-message">
+				<span>The calendar is imported separately as a JavaScript module.</span>
+				<div class="pictochat-message">
+					<header class="ds-teal-50">Note</header>
 					<span
-						>Alerts can be paired with an optional loading animation (which could be used on its
-						own, too!).</span
+						>The calendar can be colored with a <strong>style</strong> attribute, and can have its
+						outline hidden with <strong>border-hidden</strong>.</span
 					>
-				</Textbox>
-
-				<DSComponent>
-					<div class="alert">
-						<div class="loading-container">
-							<div class="loading-1"></div>
-							<div class="loading-2"></div>
-							<div class="loading-3"></div>
-							<div class="loading-4"></div>
-							<div class="loading-5"></div>
-							<div class="loading-6"></div>
-							<div class="loading-7"></div>
-							<div class="loading-8"></div>
-							<div class="loading-9"></div>
-						</div>
-						<span>Looking for software available for download...</span>
-						<div class="loading-container">
-							<div class="loading-1"></div>
-							<div class="loading-2"></div>
-							<div class="loading-3"></div>
-							<div class="loading-4"></div>
-							<div class="loading-5"></div>
-							<div class="loading-6"></div>
-							<div class="loading-7"></div>
-							<div class="loading-8"></div>
-							<div class="loading-9"></div>
-						</div>
-					</div>
-				</DSComponent>
-
-				<CodeSnippet code={snippets.alert} />
+				</div>
 			</div>
+			<DSComponent>
+				<div class="flex gap-4">
+					<ds-calendar></ds-calendar>
+					<ds-calendar style="--color: var(--color-{active})" hide-border=""></ds-calendar>
+				</div>
+			</DSComponent>
+			<CodeSnippet code={snippets.calendar} />
+		</div>
 
-			<!-- info / header -->
-			<div class="pictochat-status" id="infoheader">Info / Header Box</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<DSComponent>
-					<div class="info">
-						<div class="info-square">image</div>
-						<div class="info-container">
-							<div class="info-label">Settings</div>
-							<div class="info-text">
-								Change system settings here. Select the setting you'd like to change.
-							</div>
-						</div>
-					</div>
-				</DSComponent>
-				<CodeSnippet code={snippets.info} />
-			</div>
-
-			<!-- pictochat -->
-			<div class="pictochat-status" id="pictochat">Pictochat</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<span>An optional selection / highlight class is available for pictochat elements.</span>
-				</Textbox>
-				<DSComponent>
-					<div class="pictochat-window">
-						<div class="pictochat-message pictochat-enter-highlight">Now joining..</div>
-						<div class="pictochat-message">
-							<header class="ds-blue-50">satellites</header>
-							<span
-								>cause the feelings come and go like flashing lights, but you never leave my
-								satellite</span
-							>
-						</div>
-						<div class="pictochat-status pictochat-exit-highlight">Now leaving..</div>
-					</div>
-				</DSComponent>
-				<CodeSnippet code={snippets.pictochat} />
-			</div>
-
-			<!-- calendar -->
-			<div class="pictochat-status" id="calendar">Calendar</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<header class="ds-darkpurple-50">Important</header>
+		<!-- clock -->
+		{@render PictoHeader('clock', 'Clock')}
+		<div class="flex flex-col ml-8 gap-1">
+			<div class="pictochat-message">
+				<span>The clock is imported separately as a JavaScript module.</span>
+				<div class="pictochat-message">
+					<header class="ds-teal-50">Note</header>
 					<span
-						>The calendar is a Web Component, and is imported separately as a JavaScript module.</span
+						>The clock can be colored with a <strong>style</strong> attribute, and can have its
+						outline hidden with <strong>border-hidden</strong>.</span
 					>
-				</Textbox>
-				<Textbox>
-					<span
-						>The calendar can be colored with a style attribute, and can have its border hidden. It
-						also updates on day changes!</span
-					>
-				</Textbox>
-				<DSComponent>
-					<div class="flex gap-4">
-						<ds-calendar></ds-calendar>
-
-						<ds-calendar style="--color: var(--color-ds-blue)" hide-border=""></ds-calendar>
+				</div>
+			</div>
+			<DSComponent>
+				<div class="flex gap-4">
+					<ds-clock></ds-clock>
+					<div class="ds-grid" style="width: fit-content">
+						<ds-clock style="--color: var(--color-{active})" hide-border=""></ds-clock>
 					</div>
-				</DSComponent>
-				<CodeSnippet code={snippets.calendar} />
+				</div>
+			</DSComponent>
+			<CodeSnippet code={snippets.clock} />
+		</div>
+	</main>
 </div>
-        			<!-- clock -->
-			<div class="pictochat-status" id="clock">Clock</div>
-			<div class="flex flex-col gap-2 ml-4 md:ml-8 mb-2">
-				<Textbox>
-					<header class="ds-darkpurple-50">Important</header>
-					<span
-						>The clock is a Web Component, and is imported separately as a JavaScript module.</span
-					>
-				</Textbox>
-				<Textbox>
-					<span
-						>The clock can be colored with a style attribute, and can have its border hidden.</span
-					>
-				</Textbox>
-				<DSComponent>
-					<div class="flex gap-4">
-						<ds-clock></ds-clock>
 
-            <div class="ds-grid" style="width: fit-content;">
-              <ds-clock style="--color: var(--color-ds-blue)" hide-border=""></ds-clock>
-            </div>
-					</div>
-				</DSComponent>
-				<CodeSnippet code={snippets.clock} />
-        </div>
-		</main>
-	</div>
-</div>
+{#snippet NavItem(href, color, label)}
+	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+	<a {href} draggable="false">
+		<button class={color}>{label}</button>
+	</a>
+{/snippet}
+
+{#snippet PictoHeader(id, label, intro = false)}
+	<span {id} class="pictochat-status pictochat-exit-highlight {intro ? '' : 'mt-4'}">
+		{label}
+	</span>
+{/snippet}
