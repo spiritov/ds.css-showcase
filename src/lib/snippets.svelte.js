@@ -77,7 +77,7 @@ export const snippets = $state({
 <button class="button-lg"></button>
 <button class="button-square">X</button>`,
 	/* html */
-	radioButtons: `<fieldset class="grid grid-cols-2 gap-4">
+	radioButtons: `<fieldset>
   <legend>Select an option</legend>
   <div class="radio-button">
     <input id="radio1" type="radio" name="option" class="ds-color" />
@@ -136,10 +136,10 @@ export const snippets = $state({
 </div>`,
 	/* html */
 	calendar: `<ds-calendar></ds-calendar>
-<ds-calendar style="--color: var(--color-ds-color)" hide-border=""></ds-calendar>`,
+<ds-calendar style="--color: var(--color-ds-color)" hide-border></ds-calendar>`,
 	/* html */
 	clock: `<ds-clock></ds-clock>
 <div class="ds-grid" style="width: fit-content">
-  <ds-clock style="--color: var(--color-ds-color)" hide-border=""></ds-clock>
+  <ds-clock style="--color: var(--color-ds-color)" hide-border></ds-clock>
 </div>`
 });
