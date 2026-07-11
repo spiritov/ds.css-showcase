@@ -32,7 +32,7 @@
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
 
-<div class="flex gap-7 mt-5 mr-5 overflow-auto">
+<div class="flex gap-7 mt-5 mr-5 min-w-fit">
 	<!-- sidebar -->
 	<nav class="flex flex-col gap-3 ml-7 mt-2 fixed">
 		{@render NavItem('', 'ds-pink', 'Intro')}
