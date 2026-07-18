@@ -9,18 +9,20 @@
 	import DSComponent from '$lib/components/DSComponent.svelte';
 	import CodeSnippet from '$lib/components/CodeSnippet.svelte';
 	// import Calendar from './widgets/Calendar.wc.svelte';
-	// import Clock from './widgets/Clock.wc.svelte';
+	import Clock from './widgets/Clock.wc.svelte';
 	onMount(async () => {
 		await import('@spiritov/ds.css/dist/widgets/ds-calendar.js');
-		await import('@spiritov/ds.css/dist/widgets/ds-clock.js');
+		// await import('@spiritov/ds.css/dist/widgets/ds-clock.js');
 	});
 
 	let active = $state('ds-slate');
+	const colorRegex =
+		/(ds-)((color)|(slate)|(maroon)|(red)|(pink)|(orange)|(yellow)|(neonyellow)|(lime)|(green)|(teal)|(turquoise)|(blue)|(navy)|(darkpurple)|(magenta)|(fuschia))/g;
 
 	// update active color for snippets
 	$effect(() => {
 		for (const [k, v] of Object.entries(snippets)) {
-			snippets[k] = v.replaceAll('ds-color', active);
+			snippets[k] = v.replaceAll(colorRegex, active);
 		}
 	});
 </script>

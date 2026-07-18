@@ -7,19 +7,19 @@
 />
 
 <script>
-	import { SvelteDate } from "svelte/reactivity";
-  import './clock.css';
+	import { SvelteDate } from 'svelte/reactivity';
+	import './clock.css';
 
-  const date = new SvelteDate();
+	const date = new SvelteDate();
 
-  // counts to 60, then updates date and resets
-	// this way, date isn't being assigned every second
+	// counts to 15, then updates date and resets
+	// this way, date isn't being assigned every second, but setInterval drift is still accounted for
 	let seconds = $state(date.getSeconds());
 
 	$effect(() => {
 		const interval = setInterval(() => {
 			seconds += 1;
-			if (seconds >= 60) {
+			if (seconds >= 12) {
 				date.setTime(Date.now());
 				seconds = date.getSeconds();
 			}
@@ -30,21 +30,21 @@
 		};
 	});
 
-  	// bad naming.. if the attribute exists empty, hide the border
+	// bad naming.. if the attribute exists empty, hide the border
 	let { hideBorder = 'truthy' } = $props();
 	let showBorder = $state(hideBorder);
 </script>
 
 <div
 	class="relative size-[194px] border-2 border-black bg-white/50"
-	style:box-shadow={showBorder ? "0px 0px 0px 2px #d3d3d3,0px 0px 0px 4px #e3e3e3" : ""}
+	style:box-shadow={showBorder ? '0px 0px 0px 2px #d3d3d3,0px 0px 0px 4px #e3e3e3' : ''}
 >
 	<!-- center dot, hands -->
 	<div class="absolute top-0 left-0 z-10 grid size-full place-content-center">
 		<div class="relative flex size-[10px] items-end justify-center bg-(--color-ds-clock-center)">
 			<div
 				class="absolute bottom-[2px] -z-10 ml-[6px] h-[48px] w-[4px] origin-bottom bg-(--color-ds-clock-dot)"
-				style:rotate={`${((date.getHours() % 12) / 12) + ((1 / 12) *  (date.getMinutes() / 60))}turn`}
+				style:rotate={`${(date.getHours() % 12) / 12 + (1 / 12) * (date.getMinutes() / 60)}turn`}
 			></div>
 			<div
 				class="absolute bottom-[2px] -z-10 ml-[6px] h-[64px] w-[4px] origin-bottom bg-(--color-ds-clock-dot)"
@@ -58,7 +58,8 @@
 	</div>
 	<!-- clock numbers -->
 	<div
-		class="absolute top-0 left-[4px] flex size-full flex-col items-center justify-between text-[40px] leading-none tracking-tighter text-(--color-ds-clock-text)" style:font-family="var(--font-clock)"
+		class="absolute top-0 left-[4px] flex size-full flex-col items-center justify-between text-[40px] leading-none tracking-tighter text-(--color-ds-clock-text)"
+		style:font-family="var(--font-clock)"
 	>
 		<span class="pt-[10px]">12</span>
 		<div class="flex w-full justify-between px-[2px]">
@@ -91,17 +92,16 @@
 {/snippet}
 
 <style>
-
 	:host {
 		/* slate default */
 		--color: #61829a;
 	}
 
-  :root {
-    --color: #61829a;
+	:root {
+		--color: #61829a;
 
-    --color-ds-clock-center: #494949;
-    --color-ds-clock-dot: #797979;
-    --color-ds-clock-text: #b2b2b2;
-  }
+		--color-ds-clock-center: #494949;
+		--color-ds-clock-dot: #797979;
+		--color-ds-clock-text: #b2b2b2;
+	}
 </style>
